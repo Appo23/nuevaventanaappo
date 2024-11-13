@@ -160,7 +160,7 @@
     padding: 20px; /* Espaciado interno */
     border: 1px solid #888; /* Borde */
     width: 70%; /* Ancho del modal */
-    max-width: 600px; /* Ancho máximo del modal */
+    max-width: 700px; /* Ancho máximo del modal */
     max-height: 50vh; /* Altura máxima del modal */
     overflow-y: auto; /* Permitir desplazamiento vertical si el contenido excede la altura */
     background-color: rgba(24, 24, 24, 0.9); /* Fondo */
@@ -292,20 +292,7 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
 
 
 
-.ax {
-    display: inline-block; 
-    padding: 12px 24px;
-    background-color: #333333; /* Gris oscuro */
-    color: white; 
-    text-align: center; 
-    text-decoration: none; 
-    border: none; /* Sin borde */
-    border-radius: 5px; 
-    margin-right: 10px;
-    font-size: 16px; /* Tamaño de fuente más grande */
-    font-weight: bold; /* Negrita */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
-}
+
 
 
 .ax {
@@ -329,6 +316,10 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
     transform: translateY(-2px) scale(1.05); /* Efecto de movimiento y escala al pasar el mouse */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4); /* Aumentar sombra al pasar el mouse */
 }
+
+
+
+
 
 
 
@@ -430,7 +421,7 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
 <div id="fullscreen-player" class="fullscreen-modal">
     <div class="fullscreen-content">
         <span class="close" onclick="closeFullscreenPlayer()">&times;</span>
-        <iframe id="chapter-player" src="" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        <iframe id="chapter-player" src="" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" sandbox="allow-scripts"></iframe>
     </div>
 </div>
 
@@ -538,23 +529,7 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
         });
     }
 
-    // Función para abrir el reproductor en pantalla completa
-    function abrirFullscreenPlayer(videoUrl) {
-        const player = document.getElementById("fullscreen-player");
-        const iframe = document.getElementById("chapter-player");
-        iframe.src = videoUrl; // Carga el video
-        player.style.display = "block"; // Muestra el reproductor
-    }
-
-    // Función para cerrar el reproductor
-    function closeFullscreenPlayer() {
-        const player = document.getElementById("fullscreen-player");
-        const iframe = document.getElementById("chapter-player");
-        player.style.display = "none"; // Oculta el reproductor
-        iframe.src = ""; // Limpia la URL del video
-    }
-
-    // Función para abrir el modal
+    // Función para abrir la película en una nueva ventana
     function abrirModal(videoUrl, descargarUrl, tercerUrl) {
         const modal = document.getElementById("myModal");
         const videoFrame = document.getElementById("videoFrame");
@@ -565,13 +540,15 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
         videoFrame.setAttribute("allow", "autoplay"); // Permite la reproducción automática
         modal.style.display = "block"; // Muestra el modal
 
-        // Configura los botones en el modal
+        // Cambiar el comportamiento del botón "Ver Película"
         btnVer.onclick = () => {
-            closeModal(); // Cierra el modal antes de abrir el reproductor
-            abrirFullscreenPlayer(tercerUrl); // Abre el reproductor con el tercer enlace
+            closeModal(); // Cierra el modal antes de abrir la nueva ventana
+            window.open(tercerUrl, '_blank'); // Abre la película en una nueva ventana
         };
+
+        // Botón para descargar
         btnDescargar.onclick = () => {
-            window.open(descargarUrl, '_blank'); // Descargar
+            window.open(descargarUrl, '_blank'); // Descarga la película
         };
     }
 
