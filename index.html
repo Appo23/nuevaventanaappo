@@ -16,7 +16,7 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             color: white;
             position: relative;
-            overflow: hidden; /* Para evitar el desplazamiento del fondo */
+            overflow: hidden;
         }
 
         .background {
@@ -27,7 +27,7 @@
             height: 100%;
             background: url('https://cnbl-cdn.bamgrid.com/assets/6e5f26c3d5a817c0f8604d425e5660d7b592dcc55f8825b47123fcaa1cafd862/original') no-repeat center center fixed;
             background-size: cover;
-            filter: brightness(0.3); /* Ajusta el brillo según lo necesites */
+            filter: brightness(0.3);
             z-index: 0;
         }
 
@@ -42,7 +42,7 @@
             transform: translateY(-50%);
             background: transparent;
             border-radius: 10px;
-            z-index: 1; /* Asegura que el contenedor esté por encima del fondo */
+            z-index: 1;
         }
 
         .logo {
@@ -56,8 +56,7 @@
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            background: #9B0000; /* Fondo rojo oscuro */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra suave */
+            background: #9B0000;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -65,7 +64,6 @@
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.50);
         }
 
         .btn:hover {
@@ -97,31 +95,143 @@
             font-size: 14px;
             color: #777;
         }
-        .separador {
-            border-top: 2px solid #333; /* Color gris oscuro */
-            margin tp: 800px; /* Espaciado superior e inferior */
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+            color: yellow;
+            text-align: center;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(10px); /* Aplica el desenfoque en el fondo */
+            -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+            border-radius: 10px; /* Redondea los bordes si lo deseas */
         }
+
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            max-width: 500px;
+            background-image: url('https://img.freepik.com/vector-gratis/fondo-hexagonal-oscuro-color-degradado_79603-1409.jpg'); /* Aquí va la URL de la imagen */
+            background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .modal-content img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .modal-text {
+    font-size: 19px;
+    margin: 0;
+    color: white;  /* This sets the text color to white */
+}
+
+        .modal-close {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .modal-close:hover {
+            background-color: #cc0000;
+        }
+
+        /* Estilo para el botón de la Play Store sin fondo */
+        .modal-play-store {
+            background: none;  /* Sin fondo */
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 10px; /* Añadimos un pequeño margen a la izquierda */
+        }
+
+        .modal-play-store img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Contenedor de los botones sin separación */
+        .modal-buttons {
+    display: inline-flex; /* Flexbox en línea para los botones */
+    justify-content: center; /* Alineación horizontal centrada */
+    align-items: center; /* Alineación vertical centrada */
+    margin-top: 20px; /* Separación superior para los botones */
+}
+
+.modal-buttons button {
+    margin: 0 10px; /* Espaciado entre los botones */
+}
+        
+        
     </style>
 </head>
 <body>
     <div class="background"></div>
     <div class="container">
         <div class="logo">FLIXY</div>
-        <a href="inicio.html" class="btn">Iniciar</a> <br>
+        <a href="https://appo.pages.dev/inicio" class="btn">Iniciar</a>
         
-        
-         <div class="social-icons">
-          
-            <br>
+        <div class="social-icons">
             <a href="https://t.me/flixy_peliculas"><img src="https://cdn.icon-icons.com/icons2/923/PNG/256/telegram_icon-icons.com_72055.png" alt="Telegram"></a>
             <a href="https://t.me/flixy_oficial"><img src="https://cdn.icon-icons.com/icons2/923/PNG/256/telegram_icon-icons.com_72055.png" alt="Telegram"></a>
             <a href="https://www.facebook.com/profile.php?id=61556337333658&mibextid=ZbWKwL"><img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/facebook_logo_icon_147291.png" alt="Facebook"></a>
         </div>
-
-        
     </div>
     <div class="footer">
-       &copy; 2024 Derechos Reservados 
+       © 2024 Derechos Reservados 
     </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-text">
+                <p>Instala Brave y colócalo como navegador predeterminado para que disfrutes de las películas sin publicidad en el reproductor.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Brave_icon_lionface.png" alt="Brave Logo">
+        </div>
+        
+        <!-- Contenedor para los botones de cerrar y Play Store -->
+        <div class="modal-buttons">
+            <button class="modal-close" onclick="closeModal()">Cerrar</button>
+            <button class="modal-play-store" onclick="openLink()">
+                <img src="https://img.icons8.com/fluent/512/google-play-store-new.png" alt="Play Store Logo">
+            </button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Mostrar el modal al cargar la página
+            document.getElementById('modal').style.display = 'flex';
+        };
+
+        function closeModal() {
+            // Cerrar el modal
+            document.getElementById('modal').style.display = 'none';
+        }
+        
+        function openLink() {
+            // Abre el enlace de la Play Store en una nueva pestaña
+            window.open('https://play.google.com/store/apps/details?id=com.brave.browser', '_blank');
+        }
+    </script>
 </body>
 </html>
