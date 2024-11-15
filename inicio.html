@@ -110,7 +110,7 @@
             gap: 10px; /* Espacio entre las carátulas */
         }
         .pelicula {
-            min-width: 120px; /* Tamaño mínimo de las carátulas */
+            min-width: 200px; /* Tamaño mínimo de las carátulas */
             border-radius: 5px;
             transition: transform 0.2s; /* Efecto de hover */
         }
@@ -332,7 +332,7 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
         
 
         <div class="slider">
-            <div class="slides" id="slides-estrenos">
+            <div class="slides" id="slides-estrenos" loading="lazy">
                 <!-- Aquí se añadirán las imágenes dinámicamente -->
             </div>
             <div class="indicadores" id="indicadores-estrenos"></div>
@@ -344,13 +344,13 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
 
 <div class="imagen-contenedor">
     <a  target="_blank"> <!-- Reemplaza con tu enlace -->
-        <img src="https://app-9ci.pages.dev/img/Flixy-logo.gif" alt="Descripción de la imagen" class="imagen">
+        <img src="https://app-9ci.pages.dev/img/Flixy-logo.gif" alt="Descripción de la imagen" class="imagen" loading="lazy">
     </a>
     
 </div>
 
 
-<div class="imagen-contenedor">
+<div class="imagen-contenedor" loading="lazy">
     <button class="ax"      
         onclick="window.location.href='series.html'">
         Series
@@ -373,35 +373,35 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
 
 
 
-        <div class="seccion">
+        <div class="seccion" loading="lazy">
             <h2 class="titulo-seccion">Películas
                 <button class="ver-mas" onclick="window.location.href='películas.html'">Ver Más</button>
             </h2>
             <div class="peliculas" id="peliculas-generales"></div>
         </div>
-        <div class="seccion">
+        <div class="seccion" loading="lazy">
             <h2 class="titulo-seccion">Terror
                 <button class="ver-mas" onclick="window.location.href='terror.html'">Ver Más</button>
             </h2>
             <div class="peliculas" id="peliculas-terror"></div>
         </div>
-        <div class="seccion">
+        <div class="seccion" loading="lazy">
             <h2 class="titulo-seccion">Infantil
                 <button class="ver-mas" onclick="window.location.href='infantil.html'">Ver Más</button>
             </h2>
             <div class="peliculas" id="peliculas-infantil"></div>
         </div>
-        <div class="seccion">
+        <div class="seccion" loading="lazy">
             <h2 class="titulo-seccion">Doramas
                 <button class="ver-mas" onclick="window.location.href='dorama.html'">Ver Más</button>
             </h2>
             <div class="peliculas" id="peliculas-doramas"></div>
         </div>
-        <div class="seccion">
+        <div class="seccion" loading="lazy">
             <h2 class="titulo-seccion">Comedia
                 <button class="ver-mas" onclick="window.location.href='comedia.html'">Ver Más</button>
             </h2>
-            <div class="peliculas" id="peliculas-comedia"></div>
+            <div class="peliculas" id="peliculas-comedia" ></div>
         </div>
     </main>
 
@@ -496,11 +496,11 @@ transform: translateY(200px); /* Ajusta este valor para mover el modal hacia aba
     }
 
     async function cargarTodasLasPeliculas() {
-        const peliculasTerror = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-apliyde-pel-culas/refs/heads/main/Terror.m3u');
-        const peliculasInfantil = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-apliyde-pel-culas/refs/heads/main/Infantil.m3u');
-        const peliculasDoramas = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-apliyde-pel-culas/refs/heads/main/Doramas.m3u');
-        const peliculasComedia = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-apliyde-pel-culas/refs/heads/main/Comedia.m3u');
-        const peliculasGenerales = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-apliyde-pel-culas/refs/heads/main/Peliculas.m3u');
+        const peliculasTerror = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-estrenos/refs/heads/main/Terror.m3u');
+        const peliculasInfantil = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-estrenos/refs/heads/main/Infantil.m3u');
+        const peliculasDoramas = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-estrenos/refs/heads/main/Doramas.m3u');
+        const peliculasComedia = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-estrenos/refs/heads/main/Comedia.m3u');
+        const peliculasGenerales = await cargarPeliculas('https://raw.githubusercontent.com/Iptv-cnls/Panel-estrenos/refs/heads/main/Peliculas.m3u');
 
         return {
             terror: peliculasTerror.slice(0, 10),
